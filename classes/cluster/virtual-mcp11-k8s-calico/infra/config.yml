@@ -8,6 +8,7 @@ classes:
 - system.salt.minion.cert.k8s_server
 - system.reclass.storage.salt
 - system.reclass.storage.system.kubernetes_control_cluster
+- system.reclass.storage.system.stacklight_server_cluster
 - cluster.virtual-mcp11-k8s-calico.infra
 parameters:
   _param:

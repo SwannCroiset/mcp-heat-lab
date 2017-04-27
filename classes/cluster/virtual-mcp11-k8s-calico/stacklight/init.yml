@@ -1,0 +1,123 @@
+parameters:
+  _param:
+
+    cluster_vip_address: ${_param:stacklight_monitor_address}
+    cluster_local_address: ${_param:single_address}
+    cluster_node01_hostname: mon01
+    cluster_node01_address: ${_param:stacklight_monitor_node01_address}
+    cluster_node02_hostname: mon02
+    cluster_node02_address: ${_param:stacklight_monitor_node02_address}
+    cluster_node03_hostname: mon03
+    cluster_node03_address: ${_param:stacklight_monitor_node03_address}
+
+    heka_elasticsearch_host: ${_param:stacklight_monitor_address}
+    heka_influxdb_host: ${_param:stacklight_monitor_address}
+    heka_aggregator_host: ${_param:stacklight_monitor_address}
+
+    aggregator_port: 5565
+
+    grafana_user: admin
+    grafana_password: password
+    grafana_influxdb_host: ${_param:stacklight_monitor_address}
+
+    elasticsearch_port: 9200
+
+    influxdb_stacklight_password: lmapass
+    influxdb_admin_password: password
+    influxdb_port: 8086
+    influxdb_database: lma
+    influxdb_user: lma
+    influxdb_password: lmapass
+
+    rabbitmq_monitor_password: 'password'
+    rabbitmq_monitor_port: 5672
+
+    stacklight_environment: ${_param:cluster_domain}_prd
+    stacklight_notification_topic: stacklight_notifications
+  linux:
+    _support:
+      sensu:
+        enabled: false
+    network:
+      host:
+        mon:
+          address: ${_param:stacklight_monitor_address}
+          names:
+          - mon
+          - mon.${_param:cluster_domain}
+        mon01:
+          address: ${_param:stacklight_monitor_node01_address}
+          names:
+          - mon01
+          - mon01.${_param:cluster_domain}
+        mon02:
+          address: ${_param:stacklight_monitor_node02_address}
+          names:
+          - mon02
+          - mon02.${_param:cluster_domain}
+        mon03:
+          address: ${_param:stacklight_monitor_node03_address}
+          names:
+          - mon03
+          - mon03.${_param:cluster_domain}
+  heka:
+    server:
+      extra_fields:
+        region: ${_param:openstack_region}
+  apache:
+    _support:
+      sensu:
+        enabled: false
+  cinder:
+    _support:
+      sensu:
+        enabled: false
+  glance:
+    _support:
+      sensu:
+        enabled: false
+  glusterfs:
+    _support:
+      sensu:
+        enabled: false
+  haproxy:
+    _support:
+      sensu:
+        enabled: false
+  heat:
+    _support:
+      sensu:
+        enabled: false
+  keepalived:
+    _support:
+      sensu:
+        enabled: false
+  keystone:
+    _support:
+      sensu:
+        enabled: false
+  neutron:
+    _support:
+      sensu:
+        enabled: false
+  nginx:
+    _support:
+      sensu:
+        enabled: false
+  nova:
+    _support:
+      sensu:
+        enabled: false
+  ntp:
+    _support:
+      sensu:
+        enabled: false
+  opencontrail:
+    _support:
+      sensu:
+        enabled: false
+  rabbitmq:
+    _support:
+      sensu:
+        enabled: false
+
