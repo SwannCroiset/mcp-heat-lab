@@ -15,6 +15,8 @@ classes:
 - system.haproxy.proxy.listen.stacklight.influxdb
 - service.haproxy.proxy.single
 - system.keepalived.cluster.instance.stacklight_monitor_vip
+- cluster.virtual-mcp11-k8s-calico.infra
+- cluster.virtual-mcp11-k8s-calico.stacklight
 parameters:
   _param:
     kibana_elasticsearch_host: ${_param:stacklight_monitor_address}
