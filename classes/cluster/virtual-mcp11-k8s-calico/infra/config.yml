@@ -13,7 +13,7 @@ classes:
 parameters:
   _param:
     salt_master_base_environment: prd
-    reclass_data_repository: "https://gerrit.mcp.mirantis.net/salt-models/mcp-virtual-lab"
+    reclass_data_repository: "https://github.com/SwannCroiset/mcp-heat-lab.git"
     reclass_data_revision: master
     reclass_config_master: ${_param:infra_config_deploy_address}
     single_address: ${_param:infra_config_address}
@@ -24,6 +24,8 @@ parameters:
     apt_mk_version: nightly
   reclass:
     storage:
+      data_source:
+        engine: local
       node:
         kubernetes_compute_node01:
           name: ${_param:kubernetes_compute_node01_hostname}
